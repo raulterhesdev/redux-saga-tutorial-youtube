@@ -58,7 +58,7 @@ function* authenticate({ email, password, isRegister }) {
 //     yield put(authFail(error.message));
 //   }
 // }
-
+//
 function* logout() {
   try {
     yield call(logoutUser);
