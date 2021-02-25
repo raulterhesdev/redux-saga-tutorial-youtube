@@ -1,16 +1,34 @@
-export const getPosts = () => {
-  return fetch('https://jsonplaceholder.typicode.com/posts')
-    .then((response) => response.json())
-    .then((json) => json)
+import firebase from 'firebase/app';
+import 'firebase/auth';
+import 'firebase/database';
+import { firebaseConfig } from './firebase';
+
+firebase.initializeApp(firebaseConfig);
+
+var database = firebase.database();
+
+export const registerUser = ({ email, password }) => {
+  return firebase
+    .auth()
+    .createUserWithEmailAndPassword(email, password)
+    .then((user) => user)
     .catch((error) => Promise.reject(error));
 };
 
-export const addPost = (data) => {
-  return fetch('https://jsonplaceholder.typicode.com/posts', {
-    method: 'post',
-    body: JSON.stringify(data),
-  })
-    .then((response) => response.json())
-    .then((json) => json)
+export const loginUser = ({ email, password }) => {
+  return firebase
+    .auth()
+    .signInWithEmailAndPassword(email, password)
+    .then((user) => user)
+    .catch((error) => Promise.reject(error));
+};
+
+export const logoutUser = () => {
+  return firebase
+    .auth()
+    .signOut()
+    .then(function () {
+      // Sign-out successful.
+    })
     .catch((error) => Promise.reject(error));
 };

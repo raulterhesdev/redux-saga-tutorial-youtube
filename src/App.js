@@ -1,10 +1,10 @@
 import React from 'react';
-import Posts from './modules/posts/Posts';
+import Auth from './modules/auth/Auth';
 
 const App = () => {
   return (
     <div>
-      <Posts />
+      <Auth />
     </div>
   );
 };

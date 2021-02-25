@@ -1,6 +1,4 @@
 import { combineReducers } from 'redux';
-import posts from '../modules/posts/Posts.reducer';
+import auth from '../modules/auth/Auth.reducer';
 
-export default combineReducers({
-  posts,
-});
+export default combineReducers({ auth });

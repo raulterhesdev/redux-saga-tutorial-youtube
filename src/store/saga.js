@@ -1,10 +1,6 @@
-// export default function* () {
-//   console.log('I am redux-saga');
-// }
-
 import { all } from 'redux-saga/effects';
-import postsSaga from '../modules/posts/Posts.saga';
+import authSaga from '../modules/auth/Auth.saga';
 
-export default function* () {
-  yield all([postsSaga()]);
+export default function* rootSaga() {
+  yield all([authSaga()]);
 }
